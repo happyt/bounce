@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        html,body { height: 100%; margin: 0px; padding: 0px; }
+        div {
+            border: 2px solid;
+            border-radius: 25px;
+            background-color: #8AC007;
+            width: 50px;
+            height: 50px;
+            position: absolute;
+            left: 100px;
+            top: 150px;
+        }
+    </style>
+    <script>
+        function displayDate() {
+            document.getElementById("demo").innerHTML = Date();
+        }
+        function myFunction(elmnt, clr) {
+            elmnt.style.color = clr;
+        }
+        function myMove(e) {
+            x = e.clientX;
+            y = e.clientY;
+            coords = "Coordinates: (" + x + "," + y + ")";
+            document.getElementById("demo").innerHTML = coords
+        }
+        function myMouseDown(e) {
+            document.getElementById("demo").innerHTML = "down";
+            document.getElementById("circle").innerHTML = "down";
+        }
+        function myMouseUp(e) {
+            document.getElementById("demo").innerHTML = "up";
+            document.getElementById("circle").innerHTML = "up";
+        }
+
+    </script>
+</head>
+<body onmousemove="myMove(event)" onmousedown="myMouseDown(event)" onmouseup="myMouseUp(event)">
+<p id="demo">A paragraph.</p>
+<button type="button" onclick="displayDate()">Display Date</button>
+<p onmousedown="myFunction(this,'red')" onmouseup="myFunction(this,'green')">Click the text to change the colour.</p>
+<div id="circle">abc</div>
+</body>
+</html>

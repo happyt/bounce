@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        div {
+            border: 2px solid;
+            border-radius: 25px;
+            background-color: #8AC007;
+            width: 50px;
+            height: 50px;
+            position: absolute;
+            vertical-align: middle;
+            text-align: center;
+        }
+    </style>
+    <script>
+        window.onload = start;
+        var topX = 0;
+        var topY = 0;
+        var incX = Math.random() * 10;
+        var incY = Math.random() * 10;
+        var div;
+
+        function start(){
+            div = document.getElementById('circle');
+            div.innerHTML = "123";
+            setInterval(moveIt, 1);
+        }
+
+        function moveIt()
+        {
+            topX += incX;
+            topY += incY;
+            if (topX > window.innerWidth - 50) incX = -incX;
+            if (topX < 0) incX = -incX;
+            if (topY > window.innerHeight - 50 || topY < 0) incY = -incY;
+
+            div.style.left = topX + 'px';
+            div.style.top = topY + 'px';
+        }
+
+    </script>
+</head>
+<body>
+<div id="circle">abc</div>
+</body>
+</html>
